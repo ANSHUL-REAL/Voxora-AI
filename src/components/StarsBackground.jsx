@@ -72,6 +72,7 @@ export function StarsBackground({
   starColor = "#fff",
   ...props
 }) {
+  const hasPositionClass = /\b(absolute|fixed|sticky)\b/.test(className || "");
   const offsetX = useMotionValue(1);
   const offsetY = useMotionValue(1);
 
@@ -97,7 +98,8 @@ export function StarsBackground({
     <div
       data-slot="stars-background"
       className={cn(
-        "relative size-full overflow-hidden bg-[radial-gradient(ellipse_at_bottom,_#262626_0%,_#000_100%)]",
+        hasPositionClass ? "" : "relative",
+        "size-full overflow-hidden bg-[radial-gradient(ellipse_at_bottom,_#262626_0%,_#000_100%)]",
         className,
       )}
       onMouseMove={handleMouseMove}
