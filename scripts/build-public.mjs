@@ -1,9 +1,14 @@
 import { execFileSync, spawn } from "node:child_process";
 
-const child = spawn("npx", ["react-router", "build"], {
-  shell: true,
+const child = process.platform === "win32"
+  ? spawn(process.env.ComSpec ?? "cmd.exe", ["/d", "/s", "/c", "npx react-router build"], {
+      shell: false,
+      stdio: ["ignore", "pipe", "pipe"],
+    })
+  : spawn("npx", ["react-router", "build"], {
+  shell: false,
   stdio: ["ignore", "pipe", "pipe"],
-});
+    });
 
 let output = "";
 let finished = false;
