@@ -1,5 +1,12 @@
 {
   "framework": null,
   "buildCommand": "npm run build",
-  "installCommand": "npm install --legacy-peer-deps"
+  "installCommand": "npm install --legacy-peer-deps",
+  "outputDirectory": "build/client",
+  "rewrites": [
+    {
+      "source": "/((?!assets/|fonts/|site.webmanifest|favicon.ico).*)",
+      "destination": "/index.html"
+    }
+  ]
 }
