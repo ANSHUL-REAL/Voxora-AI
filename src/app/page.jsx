@@ -13,8 +13,10 @@ import {
   Bot,
   Database,
   Facebook,
+  Github,
   Instagram,
   Linkedin,
+  Mail,
   MessageCircle,
   MessageSquare,
   PhoneCall,
@@ -849,6 +851,41 @@ function ScrollGlobe({
                 ))}
               </div>
             )}
+
+            {section.contactLinks && (
+              <div
+                className={cn(
+                  "mt-8 flex flex-col gap-3 rounded-2xl border border-white/[0.1] bg-[#090912]/72 p-4 text-left backdrop-blur-xl sm:flex-row sm:items-center sm:justify-between",
+                  section.align === "center" && "mx-auto max-w-3xl",
+                )}
+              >
+                <div>
+                  <p className="text-xs font-bold uppercase tracking-[0.16em] text-zinc-500">
+                    Contact
+                  </p>
+                  <p className="mt-1 text-sm font-semibold text-zinc-200">
+                    Built by Anshul Nautiyal
+                  </p>
+                </div>
+                <div className="flex flex-wrap gap-2">
+                  {section.contactLinks.map((link) => {
+                    const Icon = link.icon;
+                    return (
+                      <a
+                        key={link.label}
+                        href={link.href}
+                        target={link.external ? "_blank" : undefined}
+                        rel={link.external ? "noreferrer" : undefined}
+                        className="inline-flex items-center gap-2 rounded-full border border-white/[0.1] bg-white/[0.045] px-3 py-2 text-xs font-semibold text-zinc-200 transition hover:border-violet-300/35 hover:bg-white/[0.08] hover:text-white"
+                      >
+                        <Icon className="h-3.5 w-3.5 text-violet-300" />
+                        {link.label}
+                      </a>
+                    );
+                  })}
+                </div>
+              </div>
+            )}
           </div>
         </section>
       ))}
@@ -944,6 +981,25 @@ export default function LandingPage() {
                 "Full account creation is launching soon. Demo access is open now.",
               );
             },
+          },
+        ],
+        contactLinks: [
+          {
+            label: "LinkedIn",
+            href: "https://linkedin.com/in/anshul-nautiyal-42760236b/",
+            icon: Linkedin,
+            external: true,
+          },
+          {
+            label: "GitHub",
+            href: "https://github.com/ANSHUL-REAL",
+            icon: Github,
+            external: true,
+          },
+          {
+            label: "Email",
+            href: "mailto:anshulnautiyal0512@gmail.com",
+            icon: Mail,
           },
         ],
       },
