@@ -1,0 +1,17 @@
+{
+  "name": "Voxora AI",
+  "short_name": "Voxora",
+  "description": "AI inbox, voice, CRM, automations, analytics, and knowledge training demo.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#07070f",
+  "theme_color": "#07070f",
+  "icons": [
+    {
+      "src": "/assets/voxora-logo.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}

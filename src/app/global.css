@@ -1,0 +1,154 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: "Oreon Demo";
+  src: url("/fonts/Oreon%20Demo.ttf") format("truetype");
+  font-weight: 400 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@layer base {
+  input, textarea, select, button {
+    @apply outline-none focus:outline-none;
+  }
+}
+
+@layer components {
+  .voxora-smooth-cursor-active,
+  .voxora-smooth-cursor-active * {
+    cursor: none !important;
+  }
+
+  [data-sonner-toast] {
+    background: #0b0d13 !important;
+    color: #f4f4f5 !important;
+    border: 1px solid rgba(148, 163, 184, 0.18) !important;
+    box-shadow: 0 18px 42px rgba(0, 0, 0, 0.38) !important;
+  }
+
+  [data-sonner-toast] [data-title],
+  [data-sonner-toast] [data-description] {
+    color: #f4f4f5 !important;
+  }
+
+  [data-sonner-toast] [data-icon] {
+    color: #60a5fa !important;
+  }
+
+  [data-dashboard-shell="true"] {
+    background:
+      radial-gradient(circle at 82% 8%, rgba(99, 102, 241, 0.1), transparent 28%),
+      radial-gradient(circle at 12% 92%, rgba(168, 85, 247, 0.08), transparent 30%),
+      #05050a;
+  }
+
+  [data-dashboard-shell="true"] > aside,
+  [data-dashboard-shell="true"] > main,
+  [data-dashboard-shell="true"] .dashboard-workspace,
+  [data-dashboard-shell="true"] main > div {
+    background-color: transparent !important;
+  }
+
+  [data-dashboard-shell="true"] aside {
+    background: rgba(8, 8, 18, 0.84) !important;
+    border-color: rgba(255, 255, 255, 0.06) !important;
+    backdrop-filter: blur(28px) !important;
+  }
+
+  [data-dashboard-shell="true"] header {
+    background: rgba(8, 8, 18, 0.72) !important;
+    border-color: rgba(255, 255, 255, 0.06) !important;
+    backdrop-filter: blur(22px) !important;
+  }
+
+  .dashboard-workspace {
+    color-scheme: dark;
+  }
+
+  .dashboard-workspace .rounded-2xl.border,
+  .dashboard-workspace .rounded-xl.border {
+    background-color: rgba(14, 14, 28, 0.78);
+    border-color: rgba(255, 255, 255, 0.065);
+    backdrop-filter: blur(18px);
+    transition:
+      transform 180ms ease,
+      border-color 180ms ease,
+      box-shadow 180ms ease,
+      background-color 180ms ease;
+  }
+
+  .dashboard-workspace .rounded-2xl.border:hover,
+  .dashboard-workspace .rounded-xl.border:hover {
+    border-color: rgba(99, 102, 241, 0.28);
+    box-shadow:
+      0 24px 70px rgba(0, 0, 0, 0.34),
+      0 0 34px rgba(99, 102, 241, 0.12);
+  }
+
+  .dashboard-workspace [class*="bg-gradient-to-r"][class*="from-indigo-500"],
+  .dashboard-workspace [class*="bg-gradient-to-br"][class*="from-indigo-500"],
+  [data-dashboard-shell="true"] [class*="bg-gradient-to-r"][class*="from-indigo-500"],
+  [data-dashboard-shell="true"] [class*="bg-gradient-to-br"][class*="from-indigo-500"] {
+    box-shadow: 0 14px 32px rgba(99, 102, 241, 0.22);
+  }
+
+  .marker-highlight {
+    display: inline;
+    color: inherit;
+  }
+
+  .marker-highlight__target {
+    display: inline-block;
+    position: relative;
+    padding: 0 0.08em;
+    isolation: isolate;
+  }
+
+  .marker-highlight__mark {
+    position: absolute;
+    inset: 0.13em -0.06em 0.04em -0.06em;
+    z-index: 0;
+    border-radius: 0.08em;
+    transform: scaleX(0);
+    transform-origin: left center;
+    animation: voxora-marker-swipe 1s 0.35s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+    box-shadow:
+      0 0 30px rgba(99, 102, 241, 0.36),
+      inset 0 1px 0 rgba(255, 255, 255, 0.22);
+  }
+
+  .marker-highlight__text {
+    position: relative;
+    z-index: 1;
+    color: #f8f7ff;
+    text-shadow:
+      0 2px 18px rgba(0, 0, 0, 0.8),
+      0 0 22px rgba(139, 92, 246, 0.42);
+  }
+
+  @keyframes voxora-marker-swipe {
+    0% {
+      transform: scaleX(0);
+      opacity: 0.35;
+    }
+    70% {
+      transform: scaleX(1.04);
+      opacity: 1;
+    }
+    100% {
+      transform: scaleX(1);
+      opacity: 1;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .marker-highlight__mark {
+      animation: none;
+      transform: scaleX(1);
+    }
+  }
+
+}
