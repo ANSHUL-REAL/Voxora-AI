@@ -237,6 +237,7 @@ export default function DashboardLayout({ children }) {
         !card ||
         !root.contains(card) ||
         card.closest("[data-no-tilt='true']") ||
+        card.closest("[data-no-hover-card='true']") ||
         card.closest("aside") ||
         card.closest("header")
       ) {

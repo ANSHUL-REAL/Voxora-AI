@@ -88,6 +88,31 @@
       0 0 34px rgba(99, 102, 241, 0.12);
   }
 
+  .dashboard-workspace .voxora-message-card,
+  .dashboard-workspace .voxora-message-bubble {
+    transform: none !important;
+    transition:
+      border-color 150ms ease,
+      background-color 150ms ease,
+      color 150ms ease !important;
+  }
+
+  .dashboard-workspace .voxora-message-card:hover,
+  .dashboard-workspace .voxora-message-bubble:hover {
+    transform: none !important;
+  }
+
+  .dashboard-workspace .voxora-message-card:hover {
+    box-shadow: none !important;
+  }
+
+  .dashboard-workspace .voxora-message-bubble:hover {
+    box-shadow:
+      var(--tw-ring-offset-shadow, 0 0 #0000),
+      var(--tw-ring-shadow, 0 0 #0000),
+      var(--tw-shadow, 0 0 #0000) !important;
+  }
+
   .dashboard-workspace [class*="bg-gradient-to-r"][class*="from-indigo-500"],
   .dashboard-workspace [class*="bg-gradient-to-br"][class*="from-indigo-500"],
   [data-dashboard-shell="true"] [class*="bg-gradient-to-r"][class*="from-indigo-500"],

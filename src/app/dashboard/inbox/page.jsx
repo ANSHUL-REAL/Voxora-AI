@@ -669,7 +669,8 @@ export default function UnifiedInbox() {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: i * 0.03 }}
                   onClick={() => selectChat(chat)}
-                  className={`p-3 rounded-xl cursor-pointer transition-all border group ${isActive ? "bg-indigo-500/10 border-indigo-500/25" : "bg-white/[0.02] border-white/[0.04] hover:border-white/[0.08] hover:bg-white/[0.04]"}`}
+                  data-no-hover-card="true"
+                  className={`voxora-message-card p-3 rounded-xl cursor-pointer transition-colors border group ${isActive ? "bg-indigo-500/10 border-indigo-500/25" : "bg-white/[0.02] border-white/[0.04] hover:border-white/[0.08] hover:bg-white/[0.04]"}`}
                 >
                   <div className="flex gap-2.5">
                     <div className="relative shrink-0">
@@ -810,12 +811,13 @@ export default function UnifiedInbox() {
                         </div>
                       )}
                       <div
+                        data-no-hover-card="true"
                         className={`break-words px-3.5 py-2.5 rounded-2xl text-xs leading-relaxed ${
                           msg.role === "user"
-                            ? "bg-[#1c1c2e] text-zinc-200 rounded-tl-none border border-white/[0.06]"
+                            ? "voxora-message-bubble bg-[#1c1c2e] text-zinc-200 rounded-tl-none border border-white/[0.06]"
                             : msg.role === "admin"
-                              ? "bg-white/[0.07] text-white rounded-tr-none border border-white/[0.08]"
-                              : "bg-gradient-to-br from-indigo-600 to-purple-700 text-white rounded-tr-none shadow-lg shadow-indigo-500/20"
+                              ? "voxora-message-bubble bg-white/[0.07] text-white rounded-tr-none border border-white/[0.08]"
+                              : "voxora-message-bubble bg-gradient-to-br from-indigo-600 to-purple-700 text-white rounded-tr-none shadow-lg shadow-indigo-500/20"
                         }`}
                       >
                         {msg.text}
@@ -840,7 +842,10 @@ export default function UnifiedInbox() {
                     exit={{ opacity: 0 }}
                     className="flex justify-end"
                   >
-                    <div className="flex items-center gap-2 px-4 py-2.5 bg-gradient-to-r from-indigo-600/80 to-purple-700/80 rounded-2xl rounded-tr-none border border-indigo-500/30">
+                    <div
+                      data-no-hover-card="true"
+                      className="voxora-message-bubble flex items-center gap-2 px-4 py-2.5 bg-gradient-to-r from-indigo-600/80 to-purple-700/80 rounded-2xl rounded-tr-none border border-indigo-500/30"
+                    >
                       <Sparkles size={10} className="text-indigo-300" />
                       {[0, 0.2, 0.4].map((d, i) => (
                         <motion.div
